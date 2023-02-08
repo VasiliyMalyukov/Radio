@@ -23,10 +23,7 @@ public class Radio {
     public void nextStation() {
         if (currentStation < 9) {
             currentStation = currentStation + 1;
-        }
-        if (currentStation == 9) {
-            currentStation = 0;
-        }
+        } else {currentStation = 0;}
     }
 
     //Переключение станции назад:

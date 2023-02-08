@@ -31,11 +31,11 @@ public class RadioTest {
     @Test
     public void testNextStation() {
         Radio station = new Radio();
-        station.setCurrentStation(4);
+        station.setCurrentStation(8);
 
         station.nextStation();
 
-        int expected = 5;
+        int expected = 9;
         int actual = station.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
