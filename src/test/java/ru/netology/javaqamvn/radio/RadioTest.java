@@ -55,11 +55,11 @@ public class RadioTest {
     @Test
     public void testPreviousStation() {
         Radio station = new Radio();
-        station.setCurrentStation(6);
+        station.setCurrentStation(1);
 
         station.previousStation();
 
-        int expected = 5;
+        int expected = 0;
         int actual = station.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
