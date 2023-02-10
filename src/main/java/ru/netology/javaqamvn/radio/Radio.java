@@ -3,6 +3,15 @@ package ru.netology.javaqamvn.radio;
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int maxStation;
+
+    public Radio() {
+        this.maxStation = 9;
+    }
+
+    public Radio (int stationCount) {
+        this.maxStation = stationCount - 1;
+    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -14,14 +23,18 @@ public class Radio {
 
     //Выбор радиостанции напрямую:
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation <= 9) {
-            currentStation = newCurrentStation;
+        if (newCurrentStation < 0) {
+            return;
         }
+        if (newCurrentStation > maxStation) {
+            return;
+        }
+        this.currentStation = newCurrentStation;
     }
 
     //Переключение станции вперёд:
     public void nextStation() {
-        if (currentStation < 9) {
+        if (currentStation < maxStation) {
             currentStation = currentStation + 1;
         } else {
             currentStation = 0;
@@ -33,20 +46,20 @@ public class Radio {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
         } else {
-            currentStation = 9;
+            currentStation = maxStation;
         }
     }
 
     //Текущая громкость:
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume <= 10) {
+        if (newCurrentVolume <= 100) {
             currentVolume = newCurrentVolume;
         }
     }
 
     //Увеличение громкости на 1:
     public void volumeUp() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
